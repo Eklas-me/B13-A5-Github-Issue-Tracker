@@ -14,7 +14,9 @@
 }
 
 .tab-btn:hover {
-    background-color: #f3f4f6;
+    background-color: #f3f4f6 !important;
+    border-color: #e5e7eb !important;
+    color: #6b7280 !important;
 }
 
 /* Active tab style */
