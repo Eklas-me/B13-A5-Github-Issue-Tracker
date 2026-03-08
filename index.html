@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Issues Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gray-50 min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-sm border-b border-gray-200 px-4 py-3">
+        <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-3">
+            <div class="flex items-center gap-2">
+                <img src="assets/github-logo.png" alt="Logo" class="w-8 h-8">
+                <h1 class="text-lg font-bold text-gray-800">GitHub Issues Tracker</h1>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <div class="flex">
+                    <input type="text" id="searchInput" placeholder="Q Search Issues..."
+                        class="input input-bordered input-sm w-40 md:w-64 rounded-r-none">
+                    <button id="searchBtn" class="btn btn-sm rounded-l-none"
+                        style="background-color: #6c3beb; color: white;">Search</button>
+                </div>
+                <button class="btn btn-sm bg-green-500 hover:bg-green-600 text-white border-none">+ New Issue</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-6">
+
+        <!-- Tabs -->
+        <div class="flex gap-2 mb-6">
+            <button id="tabAll" class="tab-btn active-tab" onclick="filterIssues('all')">All</button>
+            <button id="tabOpen" class="tab-btn" onclick="filterIssues('open')">Open</button>
+            <button id="tabClosed" class="tab-btn" onclick="filterIssues('closed')">Closed</button>
+        </div>
+
+        <!-- Issue Count Info -->
+        <div class="flex items-center justify-between mb-5 bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+            <div class="flex items-center gap-3">
+                <img src="assets/Aperture.png" alt="icon" class="w-8 h-8">
+                <div>
+                    <h2 id="issueCount" class="text-lg font-bold text-gray-800">0 Issues</h2>
+                    <p class="text-sm text-gray-500">Track and manage your project issues</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-1">
+                    <img src="assets/Open-Status.png" alt="open" class="w-4 h-4">
+                    <span class="text-sm text-gray-600">Open</span>
+                </div>
+                <div class="flex items-center gap-1">
+                    <img src="assets/Closed- Status .png" alt="closed" class="w-4 h-4">
+                    <span class="text-sm text-gray-600">Closed</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="flex justify-center items-center py-20">
+            <span class="loading loading-spinner loading-lg text-purple-600"></span>
+        </div>
+
+        <!-- Issues Card Grid -->
+        <div id="issuesContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <!-- cards will be added here by JavaScript -->
+        </div>
+
+    </main>
+
+    <!-- Modal for Issue Details -->
+    <div id="issueModal" class="modal-overlay hidden" onclick="closeModal(event)">
+        <div class="modal-box bg-white rounded-xl shadow-2xl p-6 max-w-md w-full mx-4"
+            onclick="event.stopPropagation()">
+            <div id="modalContent">
+                <!-- modal content will be added here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
