@@ -1,15 +1,10 @@
-
-
-
 var isLoggedIn = localStorage.getItem("isLoggedIn");
 if (isLoggedIn !== "true") {
     window.location.href = "login.html";
 }
 
-
 var allIssues = [];
 var currentTab = "all";
-
 
 var issuesContainer = document.getElementById("issuesContainer");
 var loadingSpinner = document.getElementById("loadingSpinner");
@@ -19,11 +14,9 @@ var searchBtn = document.getElementById("searchBtn");
 var issueModal = document.getElementById("issueModal");
 var modalContent = document.getElementById("modalContent");
 
-
 var tabAll = document.getElementById("tabAll");
 var tabOpen = document.getElementById("tabOpen");
 var tabClosed = document.getElementById("tabClosed");
-
 
 
 function loadIssues() {
@@ -51,7 +44,6 @@ function loadIssues() {
             console.log("Error:", error);
         });
 }
-
 
 
 function displayIssues(issues) {
@@ -132,7 +124,6 @@ function displayIssues(issues) {
 }
 
 
-
 function getLabelClass(label) {
     if (label === "bug") {
         return "label-bug";
@@ -148,7 +139,6 @@ function getLabelClass(label) {
         return "label-bug";
     }
 }
-
 
 
 function filterIssues(tab) {
@@ -185,7 +175,6 @@ function filterIssues(tab) {
         displayIssues(closedIssues);
     }
 }
-
 
 
 function openModal(issueId) {
@@ -322,7 +311,6 @@ function searchIssues() {
             console.log("Error:", error);
         });
 }
-
 
 
 loadIssues();
